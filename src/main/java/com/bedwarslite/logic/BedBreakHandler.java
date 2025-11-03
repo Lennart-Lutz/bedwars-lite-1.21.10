@@ -6,7 +6,6 @@ import net.fabricmc.fabric.api.event.*;
 
 import net.minecraft.block.BedBlock;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.FireBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -127,13 +126,13 @@ public class BedBreakHandler {
             String causingPlayerTeam = null;
 
             if (causingEntity instanceof ServerPlayerEntity serverPlayer) {
-                // The player itself created the explosion (however this is posible)
+                // The player itself created the explosion (however this is possible)
                 causingPlayerName = serverPlayer.getName().getString();
                 causingPlayerTeam = teamManager.getPlayerTeam(serverPlayer.getUuid());
 
             } else if (causingEntity instanceof net.minecraft.entity.TntEntity tnt) {
                 // TNT caused the explosion due to a player
-                Entity owner = tnt.getOwner();  // ggf. getCausingEntity() je nach Mapping
+                Entity owner = tnt.getOwner();
                 if (owner instanceof ServerPlayerEntity ownerPlayer) {
                     causingPlayerName = ownerPlayer.getName().getString();
                     causingPlayerTeam = teamManager.getPlayerTeam(ownerPlayer.getUuid());
