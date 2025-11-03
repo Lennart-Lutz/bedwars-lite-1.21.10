@@ -1,0 +1,44 @@
+{
+	"schemaVersion": 1,
+	"id": "bedwarslite",
+	"version": "${version}",
+	"name": "BedwarsLite",
+	"description": "This is a lite version of the bedwars team/spawn functionality.",
+	"authors": [
+		"Lennart Lutz"
+	],
+	"contact": {
+		"homepage": "",
+		"sources": ""
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/bedwarslite/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+          "com.bedwarslite.BedwarsLiteInitializer"
+		],
+		"client": [
+			"com.bedwarslite.BedwarsLiteClient"
+		],
+		"fabric-datagen": [
+			"com.bedwarslite.BedwarsLiteDataGenerator"
+		]
+	},
+	"mixins": [
+		"bedwarslite.mixins.json",
+		{
+			"config": "bedwarslite.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.17.3",
+		"minecraft": "~1.21.10",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
